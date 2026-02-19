@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TierList by Fushyki</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tierlist-container">
+      <h1>Minha Lista de Personagens</h1>
+
+      <div class="controls">
+        <button onclick="resetarTierList()" class="reset-btn">
+          Resetar Tudo
+        </button>
+
+        <div class="column-buttons">
+          <span>Colunas:</span>
+          <button onclick="mudarColunas(1)">1</button>
+          <button onclick="mudarColunas(2)">2</button>
+          <button onclick="mudarColunas(3)">3</button>
+        </div>
+
+        <button onclick="adicionarLinha()" class="add-row-btn">
+          + Adicionar Linha
+        </button>
+
+        <div class="dica-texto">
+          Dica: Segure <strong>ALT + Clique Esquerdo</strong> na imagem para
+          duplicar
+        </div>
+      </div>
+
+      <div class="controls" style="margin-top: 30px">
+        <button onclick="salvarComoImagem()">Salvar como Imagem</button>
+      </div>
+      <div id="board"></div>
+
+      <div class="inventory-section">
+        <label for="image-input" class="custom-upload-btn">
+          Escolher Fotos dos Personagens
+        </label>
+        <input
+          type="file"
+          id="image-input"
+          multiple
+          accept="image/*"
+          style="display: none" />
+
+        <div id="image-storage" class="storage-box"></div>
+      </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

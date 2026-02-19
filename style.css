@@ -1,0 +1,248 @@
+/* 1. CONFIGURAÇÕES GERAIS */
+body {
+    background-color: #0b0b0c;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.tierlist-container {
+    width: 90%;          /* Aumentamos de 900px para 90% para ganhar largura real */
+    max-width: 1400px;   /* Limite máximo para não ficar exagerado em telas ultra-wide */
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #0b0b0c;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 900;
+}
+
+/* 2. BARRA DE CONTROLES */
+.controls {
+    background: #161618;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.controls button {
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    background: #ffd700;
+    color: black;
+}
+
+.reset-btn {
+    background-color: #2a1515 !important;
+    color: #ff6666 !important;
+}
+
+.dica-texto {
+    width: 100%;
+    text-align: center;
+    color: #555;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* 3. SISTEMA DE DIVISÃO POR CATEGORIA (ESTILO IMAGEM 1) */
+.tier-section-group {
+    margin-bottom: 60px;
+}
+
+/* Linha das Pílulas (DPS, SUPPORT, HEALER) */
+.column-header-row {
+    display: grid;
+    gap: 10px;
+    padding-left: 90px; 
+    padding-right: 42px;
+}
+
+.col-title-box {
+    background: #1e1e21;
+    color: #eee;
+    text-align: center;
+    padding: 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Título Central com Linhas Laterais (Meta, Good, etc) */
+.group-header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.group-header::before,
+.group-header::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: currentColor; /* Pega a cor do texto do grupo */
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+/* Cores específicas de cada grupo conforme a referência */
+.tier-section-group:nth-child(1) .group-header { color: #ffd700; } /* META - Amarelo */
+.tier-section-group:nth-child(2) .group-header { color: #00ffcc; } /* GOOD - Ciano */
+.tier-section-group:nth-child(3) .group-header { color: #ff00ff; } /* OFF-META - Roxo */
+
+/* 4. LINHAS DE RANK E ÁREA DE DROP */
+.section-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tier-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.tier-label {
+    width: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 8px;
+    color: rgba(0,0,0,0.6);
+}
+
+.tier-drop-area {
+    display: grid;
+    flex-grow: 1;
+    gap: 10px;
+}
+.grid-1 { 
+    grid-template-columns: 1fr; 
+}
+/* Grades Dinâmicas */
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+/* 5. CORES DOS RANKS COM GRADIENTE */
+/* 5. CORES DOS RANKS COM GRADIENTE */
+.s-rank { background: linear-gradient(135deg, #ff7f7f, #ff4444); }
+.a-rank { background: linear-gradient(135deg, #ffbf7f, #ff8844); }
+.b-rank { background: linear-gradient(135deg, #ffff7f, #dddd44); }
+.c-rank { background: linear-gradient(135deg, #7fff7f, #44cc44); }
+.d-rank { background: linear-gradient(135deg, #7f7fff, #4444ff); }
+.f-rank { background: linear-gradient(135deg, #bf7fbf, #993399); }
+
+
+/* 6. BOTÃO DE REMOVER LINHA */
+.remove-row-btn {
+    background: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.remove-row-btn:hover { color: #ff4444; }
+
+/* 7. INVENTÁRIO (RESERVATÓRIO DE FOTOS) */
+.inventory-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: #111113;
+    border: 2px dashed #333;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.personagem-item {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex: 0 0 70px;
+    transition: transform 0.1s; /* Diminua o tempo de transição */
+    pointer-events: auto;      /* Garante que o clique seja preciso */
+}
+
+.personagem-item:hover {
+    transform: scale(1.1);
+    border-color: #ffd700;
+}
+.personagem-item.dragging {
+    opacity: 0.4; /* Deixa a imagem que você segura transparente */
+    transform: scale(0.8);
+    cursor: grabbing;
+}
+.tier-items.drag-over {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px dashed #ffd700;
+}
+.tier-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 70px);
+    justify-content: start;
+    align-content: start;
+    gap: 10px;
+    padding: 12px;
+    background: #272729;
+    min-height: 90px;
+}
+
+
+
+.grid-1 .tier-items {
+    max-width: 100%; 
+}
+
+#image-storage {
+    max-height: 400px; /* Evita que você precise descer muito a página */
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    background: #161618;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+}
