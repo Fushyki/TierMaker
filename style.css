@@ -8,8 +8,8 @@ body {
 }
 
 .tierlist-container {
-    width: 90%;          /* Aumentamos de 900px para 90% para ganhar largura real */
-    max-width: 1400px;   /* Limite máximo para não ficar exagerado em telas ultra-wide */
+    width: 90%;         
+    max-width: 1400px; 
     margin: 20px auto;
     padding: 15px;
     background-color: #0b0b0c;
@@ -71,8 +71,6 @@ h1 {
 .tier-section-group {
     margin-bottom: 60px;
 }
-
-/* Linha das Pílulas (DPS, SUPPORT, HEALER) */
 .column-header-row {
     display: grid;
     gap: 10px;
@@ -93,7 +91,6 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* Título Central com Linhas Laterais (Meta, Good, etc) */
 .group-header {
     display: flex;
     align-items: center;
@@ -110,7 +107,7 @@ h1 {
     content: "";
     flex: 1;
     height: 2px;
-    background: currentColor; /* Pega a cor do texto do grupo */
+    background: currentColor; 
     margin: 0 15px;
     opacity: 0.6;
 }
@@ -154,12 +151,10 @@ h1 {
 .grid-1 { 
     grid-template-columns: 1fr; 
 }
-/* Grades Dinâmicas */
 .grid-1 { grid-template-columns: 1fr; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
 
-/* 5. CORES DOS RANKS COM GRADIENTE */
 /* 5. CORES DOS RANKS COM GRADIENTE */
 .s-rank { background: linear-gradient(135deg, #ff7f7f, #ff4444); }
 .a-rank { background: linear-gradient(135deg, #ffbf7f, #ff8844); }
@@ -201,8 +196,8 @@ h1 {
     object-fit: cover;
     border-radius: 4px;
     flex: 0 0 70px;
-    transition: transform 0.1s; /* Diminua o tempo de transição */
-    pointer-events: auto;      /* Garante que o clique seja preciso */
+    transition: transform 0.1s; 
+    pointer-events: auto;   
 }
 
 .personagem-item:hover {
@@ -210,7 +205,7 @@ h1 {
     border-color: #ffd700;
 }
 .personagem-item.dragging {
-    opacity: 0.4; /* Deixa a imagem que você segura transparente */
+    opacity: 0.4;
     transform: scale(0.8);
     cursor: grabbing;
 }
@@ -236,7 +231,7 @@ h1 {
 }
 
 #image-storage {
-    max-height: 400px; /* Evita que você precise descer muito a página */
+    max-height: 400px; 
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
@@ -245,4 +240,5 @@ h1 {
     background: #161618;
     border-radius: 12px;
     border: 1px solid #2a2a2a;
+
 }
