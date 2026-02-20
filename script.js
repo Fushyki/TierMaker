@@ -139,24 +139,19 @@ function criarLinha(rank, numero) {
     return row;
 }
 
-// 5. ATUALIZAR DESTINOS DE DROP (CORRIGIDO)
+// 5. ATUALIZAR DESTINOS DE DROP
 function atualizarDestinos() {
-    // Agora ele pega todos os boxes de itens, inclusive os que estão dentro das colunas
     const containersAlvo = document.querySelectorAll('.tier-items, #image-storage');
-
     containersAlvo.forEach(container => {
-        // Permite que algo seja arrastado sobre ele
         container.addEventListener('dragover', e => {
             e.preventDefault();
-            container.classList.add('drag-over'); // Opcional: efeito visual de destaque
+            container.classList.add('drag-over');
         });
-
-        // Remove o destaque quando sair
+        
         container.addEventListener('dragleave', () => {
             container.classList.remove('drag-over');
         });
-
-        // Lógica de soltar a imagem
+        
         container.addEventListener('drop', e => {
             e.preventDefault();
             container.classList.remove('drag-over');
@@ -182,19 +177,13 @@ function carregarTudoAutomatico() {
 
 // 7. FUNÇÕES DOS BOTÕES DO HTML
 function adicionarLinha() {
-    // Adiciona uma nova linha genérica ao último grupo (OFF-META)
-    // l: Label (texto), c: Classe de cor CSS
     meusRanks[meusRanks.length - 1].ranks.push({ l: "?", c: "f-rank" });
-
-    // Força o board a se reconstruir com a nova linha incluída
     mudarColunas(colunasAtuais);
-
-    // Salva o novo estado para não perder ao atualizar a página
     salvarProgresso();
 }
 function resetarTierList() {
     if (confirm('Resetar tudo?')) {
-        location.reload(); // Forma mais limpa de resetar
+        location.reload();
     }
 }
 
@@ -204,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mudarColunas(1);
 });
 // 9. FUNÇÃO PARA GERAR A IMAGEM DA TIER LIST
-// 9. FUNÇÃO PARA GERAR A IMAGEM DA TIER LIST (VERSÃO CORRIGIDA)
 function salvarComoImagem() {
     const areaTierList = document.getElementById('board');
 
@@ -214,9 +202,9 @@ function salvarComoImagem() {
 
     // 2. Executa a captura
     html2canvas(areaTierList, {
-        backgroundColor: "#0b0b0c", // Cor de fundo do seu CSS
-        scale: 2,                   // Aumenta a qualidade
-        useCORS: true,              // Evita erro de segurança com imagens
+        backgroundColor: "#0b0b0c", 
+        scale: 2,                  
+        useCORS: true,   
         allowTaint: true
     }).then(canvas => {
         const link = document.createElement('a');
@@ -241,22 +229,20 @@ function atualizarDestinos() {
             const elementoApos = getElementoApos(container, e.clientX, e.clientY);
 
             if (elementoApos == null) {
-                // Se não houver elemento depois, ele vai para o fim da lista
                 container.appendChild(imagemSendoArrastada);
             } else {
-                // Se houver, ele insere exatamente na posição correta (mesmo em várias linhas)
                 container.insertBefore(imagemSendoArrastada, elementoApos);
             }
         });
 
         // Adicione isso para limpar o estado visual quando soltar
         container.addEventListener('drop', () => {
-            salvarProgresso(); // Salva automaticamente ao soltar
+            salvarProgresso();
         });
     });
 }
 
-// Função mágica que calcula quem deve abrir espaço
+//Calcula quem deve abrir espaço
 function getElementoApos(container, x, y) {
     const elementos = [
         ...container.querySelectorAll('.personagem-item:not(.dragging)')
@@ -264,13 +250,11 @@ function getElementoApos(container, x, y) {
 
     let elementoMaisProximo = null;
     let menorDistancia = Number.POSITIVE_INFINITY;
-
+    
     elementos.forEach(el => {
         const box = el.getBoundingClientRect();
-
         const centroX = box.left + box.width / 2;
         const centroY = box.top + box.height / 2;
-
         const distancia = Math.hypot(
             x - centroX,
             y - centroY
@@ -285,28 +269,24 @@ function getElementoApos(container, x, y) {
     if (!elementoMaisProximo) return null;
 
     const box = elementoMaisProximo.getBoundingClientRect();
-
-    // Decide se entra antes ou depois baseado no lado do mouse
     if (x > box.left + box.width / 2) {
         return elementoMaisProximo.nextSibling;
     }
 
     return elementoMaisProximo;
 }
-
-// Atualize também a função de configurar o Drag para adicionar a classe .dragging
 function configurarDrag(elemento) {
     elemento.addEventListener('dragstart', (e) => {
         if (!elemento.id) elemento.id = 'img-' + Date.now() + Math.random();
         e.dataTransfer.setData("text/plain", e.target.id);
-        elemento.classList.add('dragging'); // Classe essencial para a lógica acima
+        elemento.classList.add('dragging');
     });
 
     elemento.addEventListener('dragend', () => {
         elemento.classList.remove('dragging');
     });
 }
-// Função para transformar a montagem atual em texto e salvar
+
 function salvarProgresso() {
     const dadosParaSalvar = [];
     const linhas = document.querySelectorAll('.tier-row');
@@ -320,19 +300,14 @@ function salvarProgresso() {
             const imagens = [...box.querySelectorAll('img')].map(img => img.src);
             imagensPorBox.push(imagens);
         });
-
         dadosParaSalvar.push({
             rank: rankLabel,
             fotos: imagensPorBox
         });
     });
-
     localStorage.setItem('minhaTierListGenshin', JSON.stringify(dadosParaSalvar));
 }
 
-// Chame essa função toda vez que algo for solto (drop)
-// No seu atualizarDestinos(), dentro do listener de 'drop', adicione:
-// salvarProgresso();
 function carregarProgresso() {
     const save = localStorage.getItem('minhaTierListGenshin');
     if (!save) return;
@@ -348,11 +323,11 @@ function carregarProgresso() {
                     const img = criarElementoImagem(src);
                     boxes[boxIndex].appendChild(img);
 
-                    // Remove do banco de imagens original para não ficar duplicado
                     const originalNoBanco = [...containerFotos.querySelectorAll('img')].find(i => i.src === src);
                     if (originalNoBanco) originalNoBanco.remove();
                 });
             });
         }
     });
+
 }
