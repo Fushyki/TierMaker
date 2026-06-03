@@ -24,24 +24,25 @@ Construída especialmente para ranquear personagens divididos em categorias como
 
 ## 🚀 Funcionalidades
 
-| Recurso | Descrição |
-|---|---|
-| 🖱️ **Drag & Drop** | Arraste qualquer personagem para qualquer tier |
-| 📂 **Carregar Imagens** | Adicione qualquer arquivo de imagem pelo botão ou coloque na pasta `img/` |
-| 🔢 **Colunas dinâmicas** | Alterne entre 1, 2 ou 3 colunas (ex: DPS / Support / Sustain) |
-| 🏷️ **Labels editáveis** | Clique em qualquer texto da tier para renomear |
-| 🎨 **Cor customizável** | Clique com o botão direito no label do tier para trocar a cor |
-| ➕ **Adicionar linhas** | Crie novas linhas de rank na hora |
-| 🗑️ **Remover linhas** | Exclui a linha e devolve os personagens ao inventário |
-| 📋 **Duplicar card** | `ALT + Clique` em qualquer imagem para criar uma cópia |
-| 🔤 **Ordenar inventário** | Ordene por Nome A→Z, Nome Z→A ou ordem de upload |
-| 💾 **Salvar como imagem** | Exporta a tier list como `.png` para compartilhar |
+| Recurso                   | Descrição                                                                 |
+| ------------------------- | ------------------------------------------------------------------------- |
+| 🖱️ **Drag & Drop**        | Arraste qualquer personagem para qualquer tier                            |
+| 📂 **Carregar Imagens**   | Adicione qualquer arquivo de imagem pelo botão ou coloque na pasta `img/` |
+| 🔢 **Colunas dinâmicas**  | Alterne entre 1, 2 ou 3 colunas (ex: DPS / Support / Sustain)             |
+| 🏷️ **Labels editáveis**   | Clique em qualquer texto da tier para renomear                            |
+| 🎨 **Cor customizável**   | Clique com o botão direito no label do tier para trocar a cor             |
+| ➕ **Adicionar linhas**   | Crie novas linhas de rank na hora                                         |
+| 🗑️ **Remover linhas**     | Exclui a linha e devolve os personagens ao inventário                     |
+| 📋 **Duplicar card**      | `ALT + Clique` em qualquer imagem para criar uma cópia                    |
+| 🔤 **Ordenar inventário** | Ordene por Nome A→Z, Nome Z→A ou ordem de upload                          |
+| 💾 **Salvar como imagem** | Exporta a tier list como `.png` para compartilhar                         |
 
 ---
 
 ## 📂 Como adicionar personagens
 
 ### Opção 1 — Pasta `img/` (carregamento automático)
+
 Coloque seus arquivos na pasta `img/` seguindo o padrão de nome:
 
 ```
@@ -55,6 +56,7 @@ img/
 O site detecta automaticamente quantos arquivos existem — não precisa editar nenhum código.
 
 ### Opção 2 — Botão de upload
+
 Clique em **＋ Adicionar Imagens** no inventário e selecione qualquer arquivo de imagem (`.webp`, `.png`, `.jpg`, `.gif`...). Pode selecionar vários de uma vez.
 
 ---
