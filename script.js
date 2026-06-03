@@ -5,7 +5,7 @@ let meusRanks = [
     { titulo: "OFF-META CHARACTERS", ranks: [{ l: "T2", c: "d-rank" }, { l: "T3" }] } // Ajustado para f-rank
 ];
 let colunasAtuais = 1;
-const totalPersonagens = 115;
+const totalPersonagens = 120;
 
 // Seletores
 const inputImagens = document.getElementById('image-input');
